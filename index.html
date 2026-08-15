@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUSAKITA</title>
+<link rel="icon" type="image/png" href="assets/logo3.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+<a href="#hero" class="nav-logo">
+  <img src="assets/logo.png" alt="NUSAKITA Logo">
+</a>  <ul class="nav-links">
+    <li><a href="#story" class="nav-link">Story</a></li>
+    <li><a href="#journey" class="nav-link">Journey</a></li>
+    <li><a href="#menu" class="nav-link">Menu</a></li>
+    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/6281317100120" class="nav-cta">Order Now <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close menu">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <a href="#story" class="mobile-link">Story</a>
+  <a href="#journey" class="mobile-link">Journey</a>
+  <a href="#menu" class="mobile-link">Menu</a>
+  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="https://wa.me/6281317100120" class="mobile-wa">Order via WhatsApp →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg-text" id="heroBgText">NUSAKITA</div>
+  <svg class="hero-contour" viewBox="0 0 1600 900" preserveAspectRatio="none">
+    <path d="M 100 400 Q 300 350 500 380 T 900 360 T 1300 380 T 1600 370" stroke="rgba(200,75,49,0.15)" stroke-width="1" fill="none" stroke-dasharray="4 6"/>
+    <path d="M 50 500 Q 250 470 450 490 T 850 470 T 1250 490 T 1600 480" stroke="rgba(200,75,49,0.1)" stroke-width="1" fill="none" stroke-dasharray="2 8"/>
+    <path d="M 200 600 Q 400 570 600 590 T 1000 570 T 1400 590" stroke="rgba(184,137,63,0.12)" stroke-width="1" fill="none" stroke-dasharray="3 7"/>
+  </svg>
+  <div class="hero-grid">
+    <div class="hero-content">
+
+      <h1 class="hero-title">
+        <span class="line"><span>A Taste of</span></span>
+        <span class="line"><span>Indonesia,</span></span>
+        <span class="line"><span><em>Reimagined.</em></span></span>
+      </h1>
+      <p class="hero-sub">Discover the stories, ingredients, and flavors that make Indonesia unforgettable crafted with tradition, served with modern soul.</p>
+      <div class="hero-ctas">
+        <a href="#journey" class="btn-primary">Explore the Journey <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <a href="#story" class="btn-secondary">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-coordinate">0°N · 113°E — NUSANTARA</div>
+      <div class="hero-image-main"></div>
+      <div class="hero-image-secondary"></div>
+      <div class="hero-tag">Signature · Rendang</div>
+      <div class="ingredient-float one"></div>
+    </div>
+  </div>
+  <div class="hero-scroll-cue">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-bg-num">02</div>
+  <div class="story-grid">
+    <div class="story-visual">
+      <div class="story-image" id="storyImage"></div>
+    </div>
+    <div class="story-content">
+      <div class="story-eyebrow reveal">The Journey Begins</div>
+      <h2 class="story-title reveal reveal-delay-1">Every Flavor<br>Has a <em>Story.</em></h2>
+      <p class="story-body reveal reveal-delay-2">NUSAKITA celebrates Indonesia’s culinary heritage through the people, ingredients, and traditions behind every dish. From the rich flavors of West Sumatra to the aromatic spices of Maluku, every recipe carries the soul of its origin.</p>
+      <p class="story-body reveal reveal-delay-3">We honor generations-old recipes and work with local producers to bring authentic Indonesian flavors into a contemporary experience. This is heritage, reimagined for today.</p>
+      <div class="story-meta reveal reveal-delay-3">
+        <div class="story-meta-item">
+          <span class="story-meta-label">Established</span>
+          <span class="story-meta-value">2024</span>
+        </div>
+        <div class="story-meta-item">
+          <span class="story-meta-label">Regions</span>
+          <span class="story-meta-value">6</span>
+        </div>
+        <div class="story-meta-item">
+          <span class="story-meta-label">Signature Dishes</span>
+          <span class="story-meta-value">24</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY MAP -->
+<section class="journey" id="journey">
+  <div class="journey-header">
+    <div class="journey-eyebrow">Interactive Archipelago</div>
+    <h2 class="journey-title">From One Island<br>to <em>Another.</em></h2>
+  </div>
+  <div class="journey-grid">
+    <div class="map-container">
+      <svg class="map-svg" viewBox="0 0 1000 450" preserveAspectRatio="xMidYMid meet">
+        <path class="map-region" data-region="sumatra" d="M 80 100 L 130 80 L 180 110 L 220 160 L 240 210 L 230 260 L 200 290 L 170 280 L 140 240 L 110 190 L 90 140 Z"/>
+        <text x="150" y="195" class="map-label" data-region="sumatra">SUMATRA</text>
+        <path class="map-region" data-region="java" d="M 290 280 L 340 270 L 400 265 L 460 270 L 520 275 L 560 280 L 555 305 L 500 310 L 440 308 L 380 305 L 320 302 Z"/>
+        <text x="400" y="295" class="map-label" data-region="java">JAVA</text>
+        <path class="map-region" data-region="kalimantan" d="M 420 110 L 490 100 L 550 130 L 580 180 L 570 240 L 540 270 L 490 265 L 460 230 L 440 180 L 425 140 Z"/>
+        <text x="490" y="195" class="map-label" data-region="kalimantan">KALIMANTAN</text>
+        <path class="map-region" data-region="sulawesi" d="M 620 130 L 660 120 L 680 150 L 670 180 L 650 200 L 670 230 L 690 260 L 680 290 L 660 280 L 640 250 L 630 210 L 620 170 Z"/>
+        <text x="640" y="205" class="map-label" data-region="sulawesi">SULAWESI</text>
+        <path class="map-region" data-region="bali" d="M 600 295 L 630 290 L 640 305 L 630 318 L 605 315 Z"/>
+        <text x="610" y="338" class="map-label" data-region="bali">BALI</text>
+        <path class="map-region" data-region="eastern" d="M 740 150 L 800 140 L 860 160 L 900 200 L 920 250 L 880 280 L 820 270 L 780 240 L 750 200 Z"/>
+        <path class="map-region" data-region="eastern" d="M 720 290 L 770 285 L 810 295 L 800 320 L 750 318 Z"/>
+        <text x="810" y="225" class="map-label" data-region="eastern">EASTERN</text>
+      </svg>
+    </div>
+    <div class="journey-info" id="journeyInfo">
+      <div class="journey-info-region" id="infoRegion">West Sumatra</div>
+      <h3 class="journey-info-dish" id="infoDish">Rendang</h3>
+      <div class="journey-info-image" id="infoImage" style="background-image: url('assets/rendang.jpeg');"></div>
+      <p class="journey-info-story" id="infoStory">"Slow-cooked, rich, and deeply rooted in Minangkabau culinary tradition."</p>
+      <div class="journey-info-flavor" id="infoFlavor">
+        <span class="flavor-tag">Rich</span><span class="flavor-tag">Spiced</span><span class="flavor-tag">Savory</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE -->
+<section class="signature">
+  <div class="signature-header">
+    <div class="signature-eyebrow">Signature Flavors</div>
+    <h2 class="signature-title">Made to Be <em>Remembered.</em></h2>
+  </div>
+  <div class="signature-pin" id="signaturePin">
+    <div class="signature-track">
+      <div class="signature-slide active" data-slide="0">
+        <div class="signature-slide-content">
+          <div class="signature-slide-num">— 01 / 03</div>
+          <div class="signature-slide-region">West Sumatra · Signature Dish</div>
+          <h3 class="signature-slide-name">Rendang</h3>
+          <p class="signature-slide-desc">Slow-cooked beef infused with aromatic spices and coconut milk, reduced to a deep, complex richness.</p>
+          <div class="signature-slide-meta">
+            <div>
+              <div class="signature-slide-price-label">Price</div>
+              <div class="signature-slide-price">Rp35.000</div>
+            </div>
+            <a href="https://wa.me/6281317100120" class="btn-primary">Discover <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          </div>
+        </div>
+        <div class="signature-slide-visual">
+<div class="signature-slide-image" style="background-image: url('./assets/rendang.jpeg');"></div>
+          </div>
+      </div>
+      <div class="signature-slide" data-slide="1">
+        <div class="signature-slide-content">
+          <div class="signature-slide-num">— 02 / 03</div>
+          <div class="signature-slide-region">South Sumatra · Signature Dish</div>
+          <h3 class="signature-slide-name">Pempek</h3>
+          <p class="signature-slide-desc">Fishcake delicacy from Palembang, served with tangy-sweet cuko sauce and a punch of vinegar.</p>
+          <div class="signature-slide-meta">
+            <div>
+              <div class="signature-slide-price-label">Price</div>
+              <div class="signature-slide-price">Rp25.000</div>
+            </div>
+            <a href="https://wa.me/6281317100120" class="btn-primary">Discover <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          </div>
+        </div>
+        <div class="signature-slide-visual">
+          <div class="signature-slide-image" style="background-image: url('./assets/pempek.jpg');"></div>
+        </div>
+      </div>
+      <div class="signature-slide" data-slide="2">
+        <div class="signature-slide-content">
+          <div class="signature-slide-num">— 03 / 03</div>
+          <div class="signature-slide-region">Yogyakarta · Signature Dish</div>
+          <h3 class="signature-slide-name">Gudeg</h3>
+          <p class="signature-slide-desc">Young jackfruit stewed in coconut milk and palm sugar, a sweet-savory Javanese classic.</p>
+          <div class="signature-slide-meta">
+            <div>
+              <div class="signature-slide-price-label">Price</div>
+              <div class="signature-slide-price">Rp28.000</div>
+            </div>
+            <a href="https://wa.me/6281317100120" class="btn-primary">Discover <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          </div>
+        </div>
+        <div class="signature-slide-visual">
+          <div class="signature-slide-image" style="background-image: url('./assets/gudeg.jpg');"></div>
+        </div>
+      </div>
+    </div>
+    <div class="signature-progress">
+      <div class="signature-dot active"></div><div class="signature-dot"></div><div class="signature-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS / CULINARY JOURNEY -->
+<section class="culinary-journey">
+  <div class="culinary-journey-header">
+    <span class="journey-eyebrow">From Heritage to Table</span>
+    <h2 class="journey-title">
+      The Journey of<br>
+      <em>Indonesian Flavor.</em>
+    </h2>
+    <p class="journey-intro">
+      Every dish carries a story — from the land where its ingredients
+      are grown to the table where its story continues.
+    </p>
+  </div>
+
+  <div class="journey-wrapper">
+
+    <!-- STEP 01 -->
+    <div class="journey-step">
+      <div class="journey-number">01</div>
+
+      <div class="journey-image">
+        <img src="./assets/bahan.jpeg" alt="Indonesian ingredients">
+      </div>
+
+      <div class="journey-content">
+        <span>01 / Origin</span>
+        <h3>Gather</h3>
+        <p>
+          We begin with ingredients deeply rooted in Indonesia's
+          landscapes, traditions, and local communities.
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 02 -->
+    <div class="journey-step journey-step-reverse">
+      <div class="journey-number">02</div>
+
+      <div class="journey-image">
+        <img src="./assets/masak.jpeg" alt="Traditional Indonesian cooking">
+      </div>
+
+      <div class="journey-content">
+        <span>02 / Craft</span>
+        <h3>Transform</h3>
+        <p>
+          Traditional recipes are brought to life through patience,
+          technique, and generations of culinary knowledge.
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 03 -->
+    <div class="journey-step">
+      <div class="journey-number">03</div>
+
+      <div class="journey-image">
+        <img src="./assets/makanan1.jpeg" alt="Indonesian dish served">
+      </div>
+
+      <div class="journey-content">
+        <span>03 / Experience</span>
+        <h3>Remember</h3>
+        <p>
+          Served not simply as food, but as an experience that
+          connects people with the soul of Indonesia.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- COLLECTION -->
+  <section class="collection" id="menu">
+    <div class="collection-header">
+      <div>
+        <div class="collection-eyebrow">The Collection</div>
+        <h2 class="collection-title">Explore the<br><em>Collection.</em></h2>
+      </div>
+      <div class="collection-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="main">Main Course</button>
+        <button class="filter-btn" data-filter="snacks">Snacks</button>
+        <button class="filter-btn" data-filter="drinks">Drinks</button>
+      </div>
+    </div>
+    <div class="collection-grid" id="collectionGrid">
+      <div class="product-card" data-category="main">
+        <div class="product-image" style="background-image: url('./assets/rendang.jpeg');"></div>
+        <div class="product-info">
+          <div class="product-region">West Sumatra</div>
+          <h3 class="product-name">Rendang Minang <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Tender beef slow-cooked in coconut milk and a blend of 11 traditional spices.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp35.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Rendang%20Minang" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="main">
+        <div class="product-image" style="background-image: url('./assets/pempek.jpg');"></div>
+        <div class="product-info">
+          <div class="product-region">South Sumatra</div>
+          <h3 class="product-name">Pempek Palembang <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Authentic fishcakes served with signature sweet-sour cuko sauce.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp25.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Pempek%20Palembang" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="main">
+        <div class="product-image" style="background-image: url('./assets/gudeg.jpg');"></div>
+        <div class="product-info">
+          <div class="product-region">Yogyakarta</div>
+          <h3 class="product-name">Gudeg Jogja <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Young jackfruit stewed in palm sugar and coconut milk.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp28.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Gudeg%20Jogja" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="main">
+        <div class="product-image" style="background-image: url('./assets/coto.jpeg');"></div>
+        <div class="product-info">
+          <div class="product-region">South Sulawesi</div>
+          <h3 class="product-name">Coto Makassar <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Rich beef offal soup with ground peanuts and aromatic spices.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp30.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Coto%20Makassar" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="snacks">
+        <div class="product-image" style="background-image: url('./assets/klepon.jpg');"></div>
+        <div class="product-info">
+          <div class="product-region">East Java</div>
+          <h3 class="product-name">Klepon <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Glutinous rice cakes filled with palm sugar, coated in grated coconut.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp15.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Klepon" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="drinks">
+        <div class="product-image" style="background-image: url('./assets/cendol.jpeg');"></div>
+        <div class="product-info">
+          <div class="product-region">West Java</div>
+          <h3 class="product-name">Es Cendol <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Chilled jelly noodles in sweet coconut milk and palm sugar syrup.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp18.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Es%20Cendol" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+            <!-- SATE MADURA -->
+      <div class="product-card" data-category="main">
+        <div class="product-image" style="background-image: url('./assets/sate.jpeg');"></div>
+        <div class="product-info">
+          <div class="product-region">East Java</div>
+          <h3 class="product-name">Sate Madura <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Grilled chicken skewers served with rich peanut sauce and sweet soy.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp25.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Sate%20Madura" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AYAM BETUTU -->
+      <div class="product-card" data-category="main">
+        <div class="product-image" style="background-image: url('./assets/ayam.jpeg');"></div>
+        <div class="product-info">
+          <div class="product-region">Bali</div>
+          <h3 class="product-name">Ayam Betutu <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Slow-cooked chicken infused with aromatic Balinese spices and herbs.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp32.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Ayam%20Betutu" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BATAGOR -->
+      <div class="product-card" data-category="snacks">
+        <div class="product-image" style="background-image: url('./assets/batagor.jpeg');"></div>
+        <div class="product-info">
+          <div class="product-region">West Java</div>
+          <h3 class="product-name">Batagor Bandung <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Crispy fried fish dumplings served with creamy peanut sauce.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp18.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Batagor%20Bandung" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BIKA AMBON -->
+      <div class="product-card" data-category="snacks">
+        <div class="product-image" style="background-image: url('./assets/bika.jpg');"></div>
+        <div class="product-info">
+          <div class="product-region">North Sumatra</div>
+          <h3 class="product-name">Bika Ambon <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Soft honeycomb cake with a fragrant pandan aroma and chewy texture.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp20.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Bika%20Ambon" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERABI -->
+      <div class="product-card" data-category="snacks">
+        <div class="product-image" style="background-image: url('./assets/serabi.jpeg');"></div>
+        <div class="product-info">
+          <div class="product-region">West Java</div>
+          <h3 class="product-name">Serabi Bandung <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Traditional rice pancakes served with warm coconut palm sugar sauce.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp15.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Serabi%20Bandung" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ES PISANG IJO -->
+      <div class="product-card" data-category="drinks">
+        <div class="product-image" style="background-image: url('./assets/es.jpeg');"></div>
+        <div class="product-info">
+          <div class="product-region">South Sulawesi</div>
+          <h3 class="product-name">Es Pisang Ijo <span class="product-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <p class="product-desc">Green-wrapped banana served with sweet coconut cream and syrup.</p>
+          <div class="product-meta">
+            <span class="product-price">Rp20.000</span>
+            <a href="https://wa.me/6281317100120?text=Halo%20NUSAKITA,%20saya%20mau%20pesan%20Es%20Pisang%20Ijo" class="product-order">Order via WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <div class="testimonials-eyebrow">Community Voices</div>
+    <h2 class="testimonials-title">Stories From<br>the <em>Table.</em></h2>
+  </div>
+  <div class="testimonials-track" id="testimonialsTrack">
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Authentic Indonesian flavors with a modern experience. NUSAKITA brings the soul of the archipelago to every plate.</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar" style="background-image: url('https://picsum.photos/seed/aulia-avatar/100/100.jpg');"></div>
+        <div>
+          <div class="testimonial-name">Aulia Pradipta</div>
+          <div class="testimonial-location">Jakarta</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">The rendang tastes like my grandmother's kitchen — but elevated. This is what Indonesian food deserves.</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar" style="background-image: url('https://picsum.photos/seed/reza-avatar/100/100.jpg');"></div>
+        <div>
+          <div class="testimonial-name">Reza Mahendra</div>
+          <div class="testimonial-location">Bandung</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Every dish tells a story. NUSAKITA doesn't just serve food — they serve heritage, beautifully reimagined.</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar" style="background-image: url('https://picsum.photos/seed/citra-avatar/100/100.jpg');"></div>
+        <div>
+          <div class="testimonial-name">Citra Wulandari</div>
+          <div class="testimonial-location">Yogyakarta</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">As someone who travels for food, NUSAKITA captured the essence of six regions in one experience. Remarkable.</p>
+      <div class="testimonial-meta">
+        <div class="testimonial-avatar" style="background-image: url('https://picsum.photos/seed/bima-avatar/100/100.jpg');"></div>
+        <div>
+          <div class="testimonial-name">Bima Santoso</div>
+          <div class="testimonial-location">Denpasar</div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header">
+    <div class="gallery-eyebrow">Visual Archive</div>
+    <h2 class="gallery-title">A Glimpse of<br><em>Nusantara.</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item" style="background-image: url('./assets/rendangg.jpeg');"><span class="gallery-item-label">The Feast</span></div>
+    <div class="gallery-item" style="background-image: url('./assets/rempah1.jpeg');"><span class="gallery-item-label">Spices</span></div>
+    <div class="gallery-item" style="background-image: url('./assets/masakk.jpeg');"><span class="gallery-item-label">Craft</span></div>
+    <div class="gallery-item" style="background-image: url('./assets/rempah2.jpeg');"><span class="gallery-item-label">Ingredients</span></div>
+    <div class="gallery-item" style="background-image: url('./assets/kuliner.jpeg');"><span class="gallery-item-label">Heritage</span></div>
+    <div class="gallery-item" style="background-image: url('./assets/makan.jpeg');"><span class="gallery-item-label">Experience</span></div>
+    <div class="gallery-item" style="background-image: url('./assets/tradisi.jpeg');"><span class="gallery-item-label">Tradition</span></div>
+    <div class="gallery-item" style="background-image: url('./assets/tradisional2.jpeg');"><span class="gallery-item-label">Plating</span></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="final-cta-bg"></div>
+  <div class="final-cta-content">
+    <div class="final-cta-eyebrow">Begin Your Journey</div>
+    <h2 class="final-cta-title">Your Journey Through<br>Indonesia <em>Starts Here.</em></h2>
+    <p class="final-cta-sub">Discover flavors, stories, and traditions from across the archipelago — one plate at a time.</p>
+    <div class="final-cta-buttons">
+      <a href="#menu" class="btn-light">Explore Menu <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      <a href="https://wa.me/6281317100120" class="btn-outline-light">Order via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-logo">NUSAKITA<span style="color: var(--terracotta);">.</span></div>
+      <p class="footer-brand-tagline">Local taste, modern experience. An immersive journey through the flavors of Indonesia.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <a href="#story" class="footer-link">Our Story</a>
+      <a href="#journey" class="footer-link">The Journey</a>
+      <a href="#menu" class="footer-link">Menu</a>
+      <a href="#gallery" class="footer-link">Gallery</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Regions</div>
+      <a href="#" class="footer-link">Sumatra</a>
+      <a href="#" class="footer-link">Java</a>
+      <a href="#" class="footer-link">Sulawesi</a>
+      <a href="#" class="footer-link">Eastern Indonesia</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <a href="https://wa.me/6281317100120" class="footer-link">WhatsApp</a>
+      <a href="#" class="footer-link">Instagram</a>
+      <a href="#" class="footer-link">TikTok</a>
+      <a href="#" class="footer-link">hello@nusakita.id</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
