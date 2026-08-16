@@ -28,7 +28,63 @@
     <li><a href="#gallery" class="nav-link">Gallery</a></li>
     <li><a href="#contact" class="nav-link">Contact</a></li>
   </ul>
-  <a href="https://wa.me/6281317100120" class="nav-cta">Order Now <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></a>
+  <div class="nav-actions">
+    <div class="nav-language" id="languageSelector">
+
+    <button
+      class="lang-btn"
+      id="langToggle"
+      type="button"
+      aria-label="Select language"
+    >
+      <img
+        src="./assets/inggris.png"
+        class="lang-flag"
+        id="currentLangFlag"
+        alt="English"
+      >
+
+      <span class="lang-arrow">⌄</span>
+    </button>
+
+
+    <div class="language-dropdown" id="languageDropdown">
+
+      <button
+        class="language-option active"
+        data-lang="en"
+        type="button"
+        aria-label="English"
+      >
+        <img
+          src="./assets/inggris.png"
+          class="option-flag"
+          alt="English"
+        >
+      </button>
+
+
+      <button
+        class="language-option"
+        data-lang="id"
+        type="button"
+        aria-label="Indonesia"
+      >
+        <img
+          src="./assets/bendera.png"
+          class="option-flag"
+          alt="Indonesia"
+        >
+      </button>
+
+    </div>
+
+  </div>
+    <a href="https://wa.me/6281317100120" class="nav-cta">Order Now <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.2"/></svg></a>
+  </div>
+  <button class="mobile-lang-btn" id="mobileLangToggle" type="button" aria-label="Toggle language" title="Toggle language">
+    <img src="./assets/inggris.png" alt="English" class="mobile-lang-flag">
+  </button>
   <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -47,6 +103,7 @@
   <a href="#menu" class="mobile-link">Menu</a>
   <a href="#gallery" class="mobile-link">Gallery</a>
   <a href="#contact" class="mobile-link">Contact</a>
+  <div class="mobile-divider"></div>
   <a href="https://wa.me/6281317100120" class="mobile-wa">Order via WhatsApp →</a>
 </div>
 

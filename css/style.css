@@ -17,7 +17,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* NAVIGATION */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 102;
-  padding: 1.25rem 3rem; display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 3rem; display: flex; align-items: center;
+  gap: 0;
   transition: background 0.4s ease, padding 0.4s ease;
   background: rgba(244, 239, 230, 0.98); 
   backdrop-filter: blur(14px);
@@ -46,14 +47,201 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .nav-logo .dot { color: var(--terracotta); }
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0 auto;
+  transform: translateX(0.8rem);
+}
 .nav-link { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); position: relative; padding: 0.25rem 0; transition: color 0.3s ease; }
 .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--terracotta); transition: width 0.3s ease; }
 .nav-link:hover { color: var(--terracotta); }
 .nav-link:hover::after { width: 100%; }
-.nav-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.4rem; background: var(--espresso); color: var(--ivory); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 30px; transition: background 0.3s ease; }
-.nav-cta:hover { background: var(--terracotta); }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.nav-cta { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.75rem 1.1rem; background: var(--espresso); color: var(--ivory); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 30px; transition: background 0.3s ease; margin-left: 0; }
+.nav-cta:hover { background: var(--terracotta); }
+/* =========================
+   LANGUAGE SWITCHER
+========================= */
+
+.nav-language {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* Main language button */
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+
+  color: var(--ink);
+
+  padding: 0.48rem 0.45rem;
+
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+
+  background: transparent;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+}
+
+.lang-text {
+  display: none;
+}
+
+.lang-flag {
+  display: block;
+  width: 26px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.mobile-lang-text {
+  font-size: 1.2rem;
+  line-height: 1;
+  display: inline-block;
+}
+
+.mobile-lang-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(26, 20, 16, 0.45);
+  background: rgba(255, 255, 255, 0.32);
+  padding: 0;
+  box-shadow: 0 6px 18px rgba(26, 20, 16, 0.08);
+}
+
+.mobile-lang-btn img,
+.mobile-lang-btn .mobile-lang-text {
+  width: 24px;
+  height: 17px;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+}
+
+.lang-arrow {
+  font-size: 0.75rem;
+  line-height: 1;
+
+  transition: transform 0.25s ease;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.language-dropdown {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  right: 0;
+
+  width: 150px;
+
+  padding: 8px;
+
+  background: var(--ivory);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-8px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+
+  z-index: 9999;
+}
+
+/* Dropdown OPEN */
+
+.nav-language.open .language-dropdown {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+.nav-language.open .lang-arrow {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   LANGUAGE OPTIONS
+========================= */
+
+.language-option {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.6rem;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  text-align: center;
+
+  transition: background 0.2s ease;
+}
+
+.language-option:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.language-option.active {
+  background: rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+}
+
+.option-flag {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
 /* =========================
    HAMBURGER BUTTON
 ========================= */
@@ -146,6 +334,60 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .nav-language {
+    width: auto;
+    margin-left: 0;
+    flex-shrink: 0;
+  }
+
+  .lang-btn {
+    font-size: 0.7rem;
+
+    padding: 0.55rem 0.8rem;
+
+    gap: 0.4rem;
+  }
+
+  .lang-flag {
+    font-size: 0.95rem;
+  }
+
+  .lang-arrow {
+    font-size: 0.7rem;
+  }
+
+  .language-dropdown {
+    top: calc(100% + 8px);
+    right: 0;
+
+    width: 145px;
+
+    padding: 7px;
+
+    border-radius: 13px;
+  }
+
+  .language-option {
+    padding: 0.6rem 0.65rem;
+
+    font-size: 0.72rem;
+
+    gap: 0.6rem;
+  }
+
+  .option-flag {
+    font-size: 1rem;
+  }
+}
+
+
 /* WhatsApp */
 
 .mobile-menu .mobile-wa {
@@ -218,11 +460,29 @@ body:has(.mobile-menu.open) .close-menu-btn {
 }
 
 @media (max-width: 1024px) {
-  .nav { padding: 1.25rem 1.5rem; }
+  .nav { padding: 1.25rem 1.5rem; gap: 0.35rem; justify-content: flex-end; }
   .nav.scrolled { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .nav-cta { display: none; }
-  .menu-toggle { display: flex; }
+  .nav-logo { margin-right: auto; }
+  .nav-language { display: flex; margin-left: 0; }
+  .lang-btn { padding: 0.42rem 0.52rem; }
+  .language-dropdown {
+    top: calc(100% + 6px);
+    right: -2px;
+    width: 104px;
+    padding: 6px;
+    border-radius: 12px;
+  }
+  .language-option {
+    padding: 0.48rem;
+  }
+  .option-flag {
+    width: 22px;
+    height: 15px;
+  }
+  .mobile-lang-btn { display: none; }
+  .menu-toggle { display: flex; margin-left: 0; }
 }
 
 /* HERO */

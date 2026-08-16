@@ -1,0 +1,386 @@
+{
+  "en": {
+    "nav": {
+      "story": "Story",
+      "journey": "Journey",
+      "menu": "Menu",
+      "gallery": "Gallery",
+      "contact": "Contact",
+      "orderNow": "Order Now"
+    },
+    "hero": {
+      "title": {
+        "line1": "A Taste of",
+        "line2": "Indonesia,",
+        "line3": "Reimagined."
+      },
+      "subtitle": "Discover the stories, ingredients, and flavors that make Indonesia unforgettable crafted with tradition, served with modern soul.",
+      "btnExplore": "Explore the Journey",
+      "btnStory": "Our Story",
+      "coordinate": "0°N · 113°E — NUSANTARA"
+    },
+    "story": {
+      "eyebrow": "The Journey Begins",
+      "title": "Every Flavor Has a Story.",
+      "body1": "NUSAKITA celebrates Indonesia's culinary heritage through the people, ingredients, and traditions behind every dish. From the rich flavors of West Sumatra to the aromatic spices of Maluku, every recipe carries the soul of its origin.",
+      "body2": "We honor generations-old recipes and work with local producers to bring authentic Indonesian flavors into a contemporary experience. This is heritage, reimagined for today.",
+      "established": "Established",
+      "regions": "Regions",
+      "dishes": "Signature Dishes"
+    },
+    "journey": {
+      "eyebrow": "Interactive Archipelago",
+      "title": "From One Island to Another.",
+      "info": "West Sumatra",
+      "dish": "Rendang",
+      "story": "\"Slow-cooked, rich, and deeply rooted in Minangkabau culinary tradition.\""
+    },
+    "signature": {
+      "eyebrow": "Signature Flavors",
+      "title": "Made to Be Remembered.",
+      "dish1": {
+        "region": "West Sumatra · Signature Dish",
+        "name": "Rendang",
+        "desc": "Slow-cooked beef infused with aromatic spices and coconut milk, reduced to a deep, complex richness.",
+        "price": "Rp35.000"
+      },
+      "dish2": {
+        "region": "South Sumatra · Signature Dish",
+        "name": "Pempek",
+        "desc": "Fishcake delicacy from Palembang, served with tangy-sweet cuko sauce and a punch of vinegar.",
+        "price": "Rp25.000"
+      },
+      "dish3": {
+        "region": "Yogyakarta · Signature Dish",
+        "name": "Gudeg",
+        "desc": "Young jackfruit stewed in coconut milk and palm sugar, a sweet-savory Javanese classic.",
+        "price": "Rp28.000"
+      },
+      "btnDiscover": "Discover"
+    },
+    "culinary": {
+      "eyebrow": "From Heritage to Table",
+      "title": "The Journey of Indonesian Flavor.",
+      "intro": "Every dish carries a story — from the land where its ingredients are grown to the table where its story continues.",
+      "step1": "01 / Origin",
+      "gather": "Gather",
+      "gatherDesc": "We begin with ingredients deeply rooted in Indonesia's landscapes, traditions, and local communities.",
+      "step2": "02 / Craft",
+      "transform": "Transform",
+      "transformDesc": "Traditional recipes are brought to life through patience, technique, and generations of culinary knowledge.",
+      "step3": "03 / Serve",
+      "share": "Share",
+      "shareDesc": "Each plate is crafted with care, plated with intention, and served to celebrate the beauty of Indonesian heritage."
+    },
+    "regions": {
+      "sumatra": {
+        "region": "West Sumatra",
+        "dish": "Rendang",
+        "story": "\"Slow-cooked, rich, and deeply rooted in Minangkabau culinary tradition.\"",
+        "flavors": ["Rich", "Spiced", "Savory"]
+      },
+      "java": {
+        "region": "Yogyakarta, Java",
+        "dish": "Gudeg",
+        "story": "\"Sweet, savory jackfruit stewed for hours — a Javanese royal tradition.\"",
+        "flavors": ["Sweet", "Savory", "Tender"]
+      },
+      "kalimantan": {
+        "region": "Pontianak, Kalimantan",
+        "dish": "Bubur Pedas",
+        "story": "\"Aromatic spiced porridge reflecting the crossroads of Borneo's trading heritage.\"",
+        "flavors": ["Aromatic", "Spiced", "Hearty"]
+      },
+      "sulawesi": {
+        "region": "South Sulawesi",
+        "dish": "Coto Makassar",
+        "story": "\"Rich beef soup with ground peanuts and fragrant galangal from Bugis tradition.\"",
+        "flavors": ["Rich", "Nutty", "Aromatic"]
+      },
+      "bali": {
+        "region": "Bali",
+        "dish": "Babi Guling",
+        "story": "\"Ceremonial spit-roast seasoned with turmeric, lemongrass, and Balinese spice paste.\"",
+        "flavors": ["Bold", "Herbal", "Smoky"]
+      },
+      "eastern": {
+        "region": "Maluku, Eastern Indonesia",
+        "dish": "Ikan Bumbu Bali",
+        "story": "\"The spice islands' gift to the world — fish bathed in chili, tomato, and lime.\"",
+        "flavors": ["Spicy", "Tangy", "Fresh"]
+      }
+    },
+    "collection": {
+      "eyebrow": "The Collection",
+      "title": "Explore the<br><em>Collection.</em>",
+      "filters": {
+        "all": "All",
+        "main": "Main Course",
+        "snacks": "Snacks",
+        "drinks": "Drinks"
+      },
+      "order": "Order via WhatsApp →",
+      "items": [
+        { "region": "West Sumatra", "desc": "Tender beef slow-cooked in coconut milk and a blend of 11 traditional spices." },
+        { "region": "South Sumatra", "desc": "Authentic fishcakes served with signature sweet-sour cuko sauce." },
+        { "region": "Yogyakarta", "desc": "Young jackfruit stewed in palm sugar and coconut milk." },
+        { "region": "South Sulawesi", "desc": "Rich beef offal soup with ground peanuts and aromatic spices." },
+        { "region": "East Java", "desc": "Glutinous rice cakes filled with palm sugar, coated in grated coconut." },
+        { "region": "West Java", "desc": "Chilled jelly noodles in sweet coconut milk and palm sugar syrup." },
+        { "region": "East Java", "desc": "Grilled chicken skewers served with rich peanut sauce and sweet soy." },
+        { "region": "Bali", "desc": "Slow-cooked chicken infused with aromatic Balinese spices and herbs." },
+        { "region": "West Java", "desc": "Crispy fried fish dumplings served with creamy peanut sauce." },
+        { "region": "North Sumatra", "desc": "Soft honeycomb cake with a fragrant pandan aroma and chewy texture." },
+        { "region": "West Java", "desc": "Traditional rice pancakes served with warm coconut palm sugar sauce." },
+        { "region": "South Sulawesi", "desc": "Green-wrapped banana served with sweet coconut cream and syrup." }
+      ]
+    },
+    "testimonials": {
+      "eyebrow": "Community Voices",
+      "title": "Stories From<br>the <em>Table.</em>",
+      "cards": [
+        {
+          "text": "Authentic Indonesian flavors with a modern experience. NUSAKITA brings the soul of the archipelago to every plate.",
+          "name": "Aulia Pradipta",
+          "location": "Jakarta"
+        },
+        {
+          "text": "The rendang tastes like my grandmother's kitchen — but elevated. This is what Indonesian food deserves.",
+          "name": "Reza Mahendra",
+          "location": "Bandung"
+        },
+        {
+          "text": "Every dish tells a story. NUSAKITA doesn't just serve food — they serve heritage, beautifully reimagined.",
+          "name": "Citra Wulandari",
+          "location": "Yogyakarta"
+        },
+        {
+          "text": "As someone who travels for food, NUSAKITA captured the essence of six regions in one experience. Remarkable.",
+          "name": "Bima Santoso",
+          "location": "Denpasar"
+        }
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Visual Archive",
+      "title": "A Glimpse of<br><em>Nusantara.</em>",
+      "labels": ["The Feast", "Spices", "Craft", "Ingredients", "Heritage", "Experience", "Tradition", "Plating"]
+    },
+    "cta": {
+      "eyebrow": "Begin Your Journey",
+      "title": "Your Journey Through<br>Indonesia <em>Starts Here.</em>",
+      "sub": "Discover flavors, stories, and traditions from across the archipelago — one plate at a time.",
+      "explore": "Explore Menu",
+      "order": "Order via WhatsApp"
+    },
+    "footer": {
+      "explore": "Explore",
+      "regions": "Regions",
+      "connect": "Connect",
+      "ourStory": "Our Story",
+      "theJourney": "The Journey",
+      "menu": "Menu",
+      "gallery": "Gallery",
+      "sumatra": "Sumatra",
+      "java": "Java",
+      "sulawesi": "Sulawesi",
+      "eastern": "Eastern Indonesia",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "email": "hello@nusakita.id"
+    }
+  },
+  "id": {
+    "nav": {
+      "story": "Cerita",
+      "journey": "Perjalanan",
+      "menu": "Menu",
+      "gallery": "Galeri",
+      "contact": "Kontak",
+      "orderNow": "Pesan Sekarang"
+    },
+    "hero": {
+      "title": {
+        "line1": "Cita Rasa",
+        "line2": "Indonesia,",
+        "line3": "Dikembangkan Ulang."
+      },
+      "subtitle": "Temukan kisah-kisah, bahan-bahan, dan cita rasa yang membuat Indonesia tak terlupakan dirancang dengan tradisi, disajikan dengan jiwa modern.",
+      "btnExplore": "Jelajahi Perjalanan",
+      "btnStory": "Kisah Kami",
+      "coordinate": "0°N · 113°E — NUSANTARA"
+    },
+    "story": {
+      "eyebrow": "Awal Perjalanan",
+      "title": "Setiap Cita Rasa Memiliki Cerita.",
+      "body1": "NUSAKITA merayakan warisan kuliner Indonesia melalui orang-orang, bahan-bahan, dan tradisi di balik setiap hidangan. Dari cita rasa kaya Sumatera Barat hingga rempah-rempah aromatik Maluku, setiap resep membawa jiwa asal-usulnya.",
+      "body2": "Kami menghormati resep-resep berusia berabad-abad dan bekerja dengan produsen lokal untuk menghadirkan cita rasa Indonesia yang autentik ke dalam pengalaman kontemporer. Ini adalah warisan, yang dikembangkan ulang untuk hari ini.",
+      "established": "Didirikan",
+      "regions": "Wilayah",
+      "dishes": "Hidangan Istimewa"
+    },
+    "journey": {
+      "eyebrow": "Kepulauan Interaktif",
+      "title": "Dari Satu Pulau ke Pulau Lain.",
+      "info": "Sumatera Barat",
+      "dish": "Rendang",
+      "story": "\"Dimasak perlahan, kaya rasa, dan sangat tertanam dalam tradisi kuliner Minangkabau.\""
+    },
+    "signature": {
+      "eyebrow": "Cita Rasa Istimewa",
+      "title": "Dibuat untuk Diingat.",
+      "dish1": {
+        "region": "Sumatera Barat · Hidangan Istimewa",
+        "name": "Rendang",
+        "desc": "Daging sapi yang dimasak perlahan dengan rempah-rempah aromatik dan santan, dikurangi hingga mencapai kekayaan kompleks yang mendalam.",
+        "price": "Rp35.000"
+      },
+      "dish2": {
+        "region": "Sumatera Selatan · Hidangan Istimewa",
+        "name": "Pempek",
+        "desc": "Kelezatan kue ikan dari Palembang, disajikan dengan saus cuko yang asam-manis dan percikan cuka.",
+        "price": "Rp25.000"
+      },
+      "dish3": {
+        "region": "Yogyakarta · Hidangan Istimewa",
+        "name": "Gudeg",
+        "desc": "Nangka muda yang dimasak dalam santan dan gula kelapa, klasik Jawa yang manis-gurih.",
+        "price": "Rp28.000"
+      },
+      "btnDiscover": "Temukan"
+    },
+    "culinary": {
+      "eyebrow": "Dari Warisan ke Meja",
+      "title": "Perjalanan Cita Rasa Indonesia.",
+      "intro": "Setiap hidangan membawa cerita — dari lahan tempat bahan-bahannya ditanam hingga meja tempat ceritanya berlanjut.",
+      "step1": "01 / Asal",
+      "gather": "Kumpulkan",
+      "gatherDesc": "Kami memulai dengan bahan-bahan yang berakar dalam dalam lanskap Indonesia, tradisi, dan komunitas lokal.",
+      "step2": "02 / Kerajinan",
+      "transform": "Transformasi",
+      "transformDesc": "Resep-resep tradisional dihidupkan melalui kesabaran, teknik, dan pengetahuan kuliner generasi-generasi.",
+      "step3": "03 / Sajian",
+      "share": "Bagikan",
+      "shareDesc": "Setiap piring dirancang dengan cermat, disajikan dengan niat, dan dihidangkan untuk merayakan keindahan warisan Indonesia."
+    },
+    "regions": {
+      "sumatra": {
+        "region": "Sumatera Barat",
+        "dish": "Rendang",
+        "story": "\"Dimasak perlahan, kaya rasa, dan sangat tertanam dalam tradisi kuliner Minangkabau.\"",
+        "flavors": ["Kaya Rasa", "Berempah", "Gurih"]
+      },
+      "java": {
+        "region": "Yogyakarta, Jawa",
+        "dish": "Gudeg",
+        "story": "\"Nangka muda yang manis, gurih, dan dimasak berjam-jam — tradisi kerajaan Jawa.\"",
+        "flavors": ["Manis", "Gurih", "Lembut"]
+      },
+      "kalimantan": {
+        "region": "Pontianak, Kalimantan",
+        "dish": "Bubur Pedas",
+        "story": "\"Bubur berempah yang aromatik mencerminkan persilangan warisan perdagangan Borneo.\"",
+        "flavors": ["Aromatik", "Berempah", "Bergizi"]
+      },
+      "sulawesi": {
+        "region": "Sulawesi Selatan",
+        "dish": "Coto Makassar",
+        "story": "\"Sup daging kaya dengan kacang tanah cincang dan galangal wangi dari tradisi Bugis.\"",
+        "flavors": ["Kaya Rasa", "Gurih Kacang", "Aromatik"]
+      },
+      "bali": {
+        "region": "Bali",
+        "dish": "Babi Guling",
+        "story": "\"Babi panggang upacara dengan bumbu kunyit, serai, dan pasta rempah Bali.\"",
+        "flavors": ["Kuat", "Herbal", "Berasap"]
+      },
+      "eastern": {
+        "region": "Maluku, Indonesia Timur",
+        "dish": "Ikan Bumbu Bali",
+        "story": "\"Hadiah kepulauan rempah untuk dunia — ikan dengan cabe, tomat, dan jeruk nipis.\"",
+        "flavors": ["Pedas", "Asam Segar", "Segar"]
+      }
+    },
+    "collection": {
+      "eyebrow": "Koleksi",
+      "title": "Jelajahi<br><em>Koleksinya.</em>",
+      "filters": {
+        "all": "Semua",
+        "main": "Hidangan Utama",
+        "snacks": "Camilan",
+        "drinks": "Minuman"
+      },
+      "order": "Pesan via WhatsApp →",
+      "items": [
+        { "region": "Sumatera Barat", "desc": "Daging sapi yang dimasak perlahan dengan santan dan campuran 11 rempah tradisional." },
+        { "region": "Sumatera Selatan", "desc": "Pempek autentik yang disajikan dengan saus cuko asam-manis khas." },
+        { "region": "Yogyakarta", "desc": "Nangka muda yang dimasak dengan gula aren dan santan." },
+        { "region": "Sulawesi Selatan", "desc": "Sup daging kaya dengan kacang tanah halus dan rempah aromatik." },
+        { "region": "Jawa Timur", "desc": "Kue beras ketan berisi gula merah, dilapisi kelapa parut." },
+        { "region": "Jawa Barat", "desc": "Mie agar-agar dingin dengan santan manis dan sirup gula aren." },
+        { "region": "Jawa Timur", "desc": "Sate ayam bakar disajikan dengan saus kacang kental dan kecap manis." },
+        { "region": "Bali", "desc": "Ayam yang dimasak perlahan dengan rempah Bali dan herbal yang kaya aroma." },
+        { "region": "Jawa Barat", "desc": "Bakso ikan goreng renyah disajikan dengan saus kacang yang lembut." },
+        { "region": "Sumatera Utara", "desc": "Kue lunak bertekstur bersarang dengan aroma pandan yang harum." },
+        { "region": "Jawa Barat", "desc": "Pancake beras tradisional yang disajikan dengan saus gula aren hangat." },
+        { "region": "Sulawesi Selatan", "desc": "Pisang berbalut hijau disajikan dengan krim kelapa dan sirup manis." }
+      ]
+    },
+    "testimonials": {
+      "eyebrow": "Suara Komunitas",
+      "title": "Kisah dari<br><em>Meja.</em>",
+      "cards": [
+        {
+          "text": "Cita rasa Indonesia yang autentik dengan pengalaman modern. NUSAKITA membawa jiwa Nusantara ke setiap piring.",
+          "name": "Aulia Pradipta",
+          "location": "Jakarta"
+        },
+        {
+          "text": "Rendang ini terasa seperti dapur nenek saya — tapi lebih halus. Inilah yang pantas didapatkan dari makanan Indonesia.",
+          "name": "Reza Mahendra",
+          "location": "Bandung"
+        },
+        {
+          "text": "Setiap hidangan menceritakan kisah. NUSAKITA tidak hanya menyajikan makanan — mereka menyajikan warisan yang dibungkus dengan indah.",
+          "name": "Citra Wulandari",
+          "location": "Yogyakarta"
+        },
+        {
+          "text": "Sebagai pecinta kuliner yang sering bepergian, NUSAKITA berhasil menangkap esensi enam wilayah dalam satu pengalaman. Luar biasa.",
+          "name": "Bima Santoso",
+          "location": "Denpasar"
+        }
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Arsip Visual",
+      "title": "Sekilas tentang<br><em>Nusantara.</em>",
+      "labels": ["Hidangan", "Rempah", "Kreasi", "Bahan", "Warisan", "Pengalaman", "Tradisi", "Penyajian"]
+    },
+    "cta": {
+      "eyebrow": "Mulai Perjalananmu",
+      "title": "Perjalananmu Melalui<br>Indonesia <em>Dimulai Di Sini.</em>",
+      "sub": "Temukan cita rasa, kisah, dan tradisi dari seluruh Nusantara — satu piring dalam satu waktu.",
+      "explore": "Jelajahi Menu",
+      "order": "Pesan via WhatsApp"
+    },
+    "footer": {
+      "explore": "Jelajahi",
+      "regions": "Wilayah",
+      "connect": "Hubungi",
+      "ourStory": "Kisah Kami",
+      "theJourney": "Perjalanan",
+      "menu": "Menu",
+      "gallery": "Galeri",
+      "sumatra": "Sumatra",
+      "java": "Jawa",
+      "sulawesi": "Sulawesi",
+      "eastern": "Indonesia Timur",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "email": "hello@nusakita.id"
+    }
+  }
+}

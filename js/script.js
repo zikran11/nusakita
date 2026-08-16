@@ -1,5 +1,1361 @@
 document.addEventListener("DOMContentLoaded", () => {
+// === LANGUAGE SWITCHING ===
 
+let translations = {};
+let currentLanguage =
+    localStorage.getItem('selectedLanguage') || 'en';
+
+let currentRegion = 'sumatra';
+
+
+// =========================================
+// LOAD TRANSLATIONS
+// =========================================
+
+fetch('./js/translations.json')
+    .then(response => {
+
+        if (!response.ok) {
+            throw new Error(
+                `HTTP error! status: ${response.status}`
+            );
+        }
+
+        return response.json();
+
+    })
+    .then(data => {
+
+        translations = data;
+
+        // Apply saved language
+        setLanguage(currentLanguage);
+
+        // Update language button
+        updateLanguageButton();
+
+    })
+    .catch(err => {
+
+        console.error(
+            'Error loading translations:',
+            err
+        );
+
+    });
+
+
+// =========================================
+// LANGUAGE DROPDOWN
+// =========================================
+
+const languageSelector =
+    document.getElementById('languageSelector');
+
+const langToggle =
+    document.getElementById('langToggle');
+
+const mobileLangToggle =
+    document.getElementById('mobileLangToggle');
+
+const languageOptions =
+    document.querySelectorAll('.language-option');
+
+
+// =========================================
+// OPEN / CLOSE DROPDOWN
+// =========================================
+
+if (langToggle && languageSelector) {
+
+    langToggle.addEventListener('click', (e) => {
+
+        e.stopPropagation();
+
+        languageSelector.classList.toggle('open');
+
+    });
+
+}
+
+if (mobileLangToggle) {
+    mobileLangToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        currentLanguage = currentLanguage === 'en' ? 'id' : 'en';
+        localStorage.setItem('selectedLanguage', currentLanguage);
+        setLanguage(currentLanguage);
+        updateLanguageButton();
+    });
+}
+
+
+// =========================================
+// SELECT LANGUAGE
+// =========================================
+
+languageOptions.forEach(option => {
+
+    option.addEventListener('click', (e) => {
+
+        e.stopPropagation();
+
+        const selectedLanguage =
+            option.dataset.lang;
+
+        // Make sure language exists
+        if (
+            !translations[selectedLanguage]
+        ) {
+
+            console.error(
+                `Translation for "${selectedLanguage}" not found.`
+            );
+
+            return;
+
+        }
+
+
+        // Update current language
+        currentLanguage =
+            selectedLanguage;
+
+
+        // Save language
+        localStorage.setItem(
+            'selectedLanguage',
+            currentLanguage
+        );
+
+
+        // Apply language
+        setLanguage(currentLanguage);
+
+
+        // Update button
+        updateLanguageButton();
+
+
+        // Update active dropdown item
+        languageOptions.forEach(item => {
+
+            item.classList.toggle(
+                'active',
+                item.dataset.lang === currentLanguage
+            );
+
+        });
+
+
+        // Close dropdown
+        if (languageSelector) {
+
+            languageSelector.classList.remove(
+                'open'
+            );
+
+        }
+
+    });
+
+});
+
+
+// =========================================
+// CLOSE DROPDOWN WHEN CLICKING OUTSIDE
+// =========================================
+
+document.addEventListener('click', (e) => {
+
+    if (
+        languageSelector &&
+        !languageSelector.contains(e.target)
+    ) {
+
+        languageSelector.classList.remove(
+            'open'
+        );
+
+    }
+
+});
+
+
+// =========================================
+// UPDATE LANGUAGE BUTTON
+// =========================================
+
+function updateLanguageButton() {
+
+    const langFlag =
+        document.getElementById('currentLangFlag');
+
+    const mobileLangToggle =
+        document.getElementById('mobileLangToggle');
+
+    const languageOptions =
+        document.querySelectorAll(
+            '.language-option'
+        );
+
+    const flagMap = {
+        en: {
+            src: './assets/inggris.png',
+            alt: 'English'
+        },
+        id: {
+            src: './assets/bendera.png',
+            alt: 'Indonesia'
+        }
+    };
+
+    const selectedFlag = flagMap[currentLanguage] || flagMap.en;
+
+    if (langFlag) {
+        langFlag.src = selectedFlag.src;
+        langFlag.alt = selectedFlag.alt;
+    }
+
+    if (mobileLangToggle) {
+        mobileLangToggle.innerHTML = `
+            <img src="${selectedFlag.src}" alt="${selectedFlag.alt}" class="mobile-lang-flag" />
+        `;
+    }
+
+
+    // Update active option
+    languageOptions.forEach(option => {
+
+        option.classList.toggle(
+            'active',
+            option.dataset.lang === currentLanguage
+        );
+
+    });
+
+}
+
+
+// =========================================
+// SET LANGUAGE
+// =========================================
+
+function setLanguage(lang) {
+
+    // Make sure translations exist
+    if (
+        !translations ||
+        !translations[lang]
+    ) {
+
+        console.error(
+            `Language "${lang}" is not available.`
+        );
+
+        return;
+
+    }
+
+
+    document.documentElement.lang = lang;
+
+
+    // =========================================
+    // NAVIGATION
+    // =========================================
+
+    const navLinks = {
+
+        story:
+            document.querySelector(
+                'a[href="#story"]'
+            ),
+
+        journey:
+            document.querySelector(
+                'a[href="#journey"]'
+            ),
+
+        menu:
+            document.querySelector(
+                'a[href="#menu"]'
+            ),
+
+        gallery:
+            document.querySelector(
+                'a[href="#gallery"]'
+            ),
+
+        contact:
+            document.querySelector(
+                'a[href="#contact"]'
+            )
+
+    };
+
+
+    if (
+        navLinks.story &&
+        translations[lang].nav?.story
+    ) {
+
+        navLinks.story.textContent =
+            translations[lang].nav.story;
+
+    }
+
+
+    if (
+        navLinks.journey &&
+        translations[lang].nav?.journey
+    ) {
+
+        navLinks.journey.textContent =
+            translations[lang].nav.journey;
+
+    }
+
+
+    if (
+        navLinks.menu &&
+        translations[lang].nav?.menu
+    ) {
+
+        navLinks.menu.textContent =
+            translations[lang].nav.menu;
+
+    }
+
+
+    if (
+        navLinks.gallery &&
+        translations[lang].nav?.gallery
+    ) {
+
+        navLinks.gallery.textContent =
+            translations[lang].nav.gallery;
+
+    }
+
+
+    if (
+        navLinks.contact &&
+        translations[lang].nav?.contact
+    ) {
+
+        navLinks.contact.textContent =
+            translations[lang].nav.contact;
+
+    }
+
+
+    // =========================================
+    // MOBILE NAVIGATION
+    // =========================================
+
+    const mobileLinks = {
+
+        story:
+            document.querySelector(
+                '.mobile-menu a[href="#story"]'
+            ),
+
+        journey:
+            document.querySelector(
+                '.mobile-menu a[href="#journey"]'
+            ),
+
+        menu:
+            document.querySelector(
+                '.mobile-menu a[href="#menu"]'
+            ),
+
+        gallery:
+            document.querySelector(
+                '.mobile-menu a[href="#gallery"]'
+            ),
+
+        contact:
+            document.querySelector(
+                '.mobile-menu a[href="#contact"]'
+            )
+
+    };
+
+
+    if (
+        mobileLinks.story &&
+        translations[lang].nav?.story
+    ) {
+
+        mobileLinks.story.textContent =
+            translations[lang].nav.story;
+
+    }
+
+
+    if (
+        mobileLinks.journey &&
+        translations[lang].nav?.journey
+    ) {
+
+        mobileLinks.journey.textContent =
+            translations[lang].nav.journey;
+
+    }
+
+
+    if (
+        mobileLinks.menu &&
+        translations[lang].nav?.menu
+    ) {
+
+        mobileLinks.menu.textContent =
+            translations[lang].nav.menu;
+
+    }
+
+
+    if (
+        mobileLinks.gallery &&
+        translations[lang].nav?.gallery
+    ) {
+
+        mobileLinks.gallery.textContent =
+            translations[lang].nav.gallery;
+
+    }
+
+
+    if (
+        mobileLinks.contact &&
+        translations[lang].nav?.contact
+    ) {
+
+        mobileLinks.contact.textContent =
+            translations[lang].nav.contact;
+
+    }
+
+
+    // =========================================
+    // NAV CTA
+    // =========================================
+
+    const orderNowBtns =
+        document.querySelectorAll(
+            '.nav-cta'
+        );
+
+
+    orderNowBtns.forEach(btn => {
+
+        if (
+            translations[lang].nav?.orderNow
+        ) {
+
+            const svg =
+                btn.querySelector('svg');
+
+            btn.textContent =
+                translations[lang].nav.orderNow + ' ';
+
+            if (svg) {
+                btn.appendChild(svg);
+            }
+
+        }
+
+    });
+
+
+    // =========================================
+    // HERO
+    // =========================================
+
+    const heroTitleLines =
+        document.querySelectorAll(
+            '.hero-title .line span'
+        );
+
+    const heroSubtitle =
+        document.querySelector(
+            '.hero-sub'
+        );
+
+    const heroCoordinate =
+        document.querySelector(
+            '.hero-coordinate'
+        );
+
+
+    if (
+        heroTitleLines.length >= 3 &&
+        translations[lang].hero?.title
+    ) {
+
+        const titleData =
+            translations[lang].hero.title;
+
+        const line1 =
+            typeof titleData === 'string'
+                ? titleData.split(', ')[0]
+                : titleData.line1;
+
+        const line2 =
+            typeof titleData === 'string'
+                ? titleData.split(', ')[1] || 'Indonesia,'
+                : titleData.line2;
+
+        const line3 =
+            typeof titleData === 'string'
+                ? titleData.split(', ')[2] || 'Reimagined.'
+                : titleData.line3;
+
+        heroTitleLines[0].textContent = line1;
+        heroTitleLines[1].textContent = line2;
+        heroTitleLines[2].innerHTML = `<em>${line3}</em>`;
+
+    }
+
+
+    if (
+        heroSubtitle &&
+        translations[lang].hero?.subtitle
+    ) {
+
+        heroSubtitle.textContent =
+            translations[lang]
+                .hero
+                .subtitle;
+
+    }
+
+
+    if (
+        heroCoordinate &&
+        translations[lang].hero?.coordinate
+    ) {
+
+        heroCoordinate.textContent =
+            translations[lang]
+                .hero
+                .coordinate;
+
+    }
+
+
+    // =========================================
+    // HERO BUTTONS
+    // =========================================
+
+    const exploreBtns =
+        document.querySelectorAll(
+            '.hero-ctas .btn-primary, .hero-ctas .btn-secondary'
+        );
+
+
+    if (
+        exploreBtns[0] &&
+        translations[lang].hero?.btnExplore
+    ) {
+
+        const svg =
+            exploreBtns[0].querySelector('svg');
+
+        exploreBtns[0].textContent =
+            translations[lang]
+                .hero
+                .btnExplore + ' ';
+
+        if (svg) {
+            exploreBtns[0].appendChild(svg);
+        }
+
+    }
+
+
+    if (
+        exploreBtns[1] &&
+        translations[lang].hero?.btnStory
+    ) {
+
+        exploreBtns[1].textContent =
+            translations[lang]
+                .hero
+                .btnStory;
+
+    }
+
+
+    // =========================================
+    // STORY
+    // =========================================
+
+    const storyEyebrow =
+        document.querySelector(
+            '.story-eyebrow'
+        );
+
+    const storyTitle =
+        document.querySelector(
+            '.story-title'
+        );
+
+    const storyBodies =
+        document.querySelectorAll(
+            '.story-body'
+        );
+
+    const storyLabels =
+        document.querySelectorAll(
+            '.story-meta-label'
+        );
+
+
+    if (
+        storyEyebrow &&
+        translations[lang].story?.eyebrow
+    ) {
+
+        storyEyebrow.textContent =
+            translations[lang]
+                .story
+                .eyebrow;
+
+    }
+
+
+    if (
+        storyTitle &&
+        translations[lang].story?.title
+    ) {
+
+        storyTitle.innerHTML =
+            translations[lang]
+                .story
+                .title;
+
+    }
+
+
+    if (
+        storyBodies[0] &&
+        translations[lang].story?.body1
+    ) {
+
+        storyBodies[0].textContent =
+            translations[lang]
+                .story
+                .body1;
+
+    }
+
+
+    if (
+        storyBodies[1] &&
+        translations[lang].story?.body2
+    ) {
+
+        storyBodies[1].textContent =
+            translations[lang]
+                .story
+                .body2;
+
+    }
+
+
+    if (
+        storyLabels[0] &&
+        translations[lang].story?.established
+    ) {
+
+        storyLabels[0].textContent =
+            translations[lang]
+                .story
+                .established;
+
+    }
+
+
+    if (
+        storyLabels[1] &&
+        translations[lang].story?.regions
+    ) {
+
+        storyLabels[1].textContent =
+            translations[lang]
+                .story
+                .regions;
+
+    }
+
+
+    if (
+        storyLabels[2] &&
+        translations[lang].story?.dishes
+    ) {
+
+        storyLabels[2].textContent =
+            translations[lang]
+                .story
+                .dishes;
+
+    }
+
+
+    // =========================================
+    // JOURNEY
+    // =========================================
+
+    const journeyEyebrow =
+        document.querySelector(
+            '.journey-eyebrow'
+        );
+
+    const journeyTitle =
+        document.querySelector(
+            '.journey-title'
+        );
+
+
+    if (
+        journeyEyebrow &&
+        translations[lang].journey?.eyebrow
+    ) {
+
+        journeyEyebrow.textContent =
+            translations[lang]
+                .journey
+                .eyebrow;
+
+    }
+
+
+    if (
+        journeyTitle &&
+        translations[lang].journey?.title
+    ) {
+
+        journeyTitle.innerHTML =
+            translations[lang]
+                .journey
+                .title;
+
+    }
+
+
+    // =========================================
+    // JOURNEY INFO
+    // =========================================
+
+    const infoRegion =
+        document.getElementById(
+            'infoRegion'
+        );
+
+    const infoDish =
+        document.getElementById(
+            'infoDish'
+        );
+
+    const infoStory =
+        document.getElementById(
+            'infoStory'
+        );
+
+
+    if (
+        infoRegion &&
+        translations[lang].journey?.info
+    ) {
+
+        infoRegion.textContent =
+            translations[lang]
+                .journey
+                .info;
+
+    }
+
+
+    if (
+        infoDish &&
+        translations[lang].journey?.dish
+    ) {
+
+        infoDish.textContent =
+            translations[lang]
+                .journey
+                .dish;
+
+    }
+
+
+    if (
+        infoStory &&
+        translations[lang].journey?.story
+    ) {
+
+        infoStory.textContent =
+            translations[lang]
+                .journey
+                .story;
+
+    }
+
+
+    // =========================================
+    // SIGNATURE
+    // =========================================
+
+    const signatureEyebrow =
+        document.querySelector(
+            '.signature-eyebrow'
+        );
+
+    const signatureTitle =
+        document.querySelector(
+            '.signature-title'
+        );
+
+
+    if (
+        signatureEyebrow &&
+        translations[lang].signature?.eyebrow
+    ) {
+
+        signatureEyebrow.textContent =
+            translations[lang]
+                .signature
+                .eyebrow;
+
+    }
+
+
+    if (
+        signatureTitle &&
+        translations[lang].signature?.title
+    ) {
+
+        signatureTitle.innerHTML =
+            translations[lang]
+                .signature
+                .title;
+
+    }
+
+
+    // =========================================
+    // SIGNATURE SLIDES
+    // =========================================
+
+    const signatureSlides =
+        document.querySelectorAll(
+            '.signature-slide'
+        );
+
+
+    signatureSlides.forEach(
+        (slide, index) => {
+
+            const dishKey =
+                `dish${index + 1}`;
+
+            const dishData =
+                translations[lang]
+                    .signature?.[dishKey];
+
+
+            if (!dishData) {
+                return;
+            }
+
+
+            const region =
+                slide.querySelector(
+                    '.signature-slide-region'
+                );
+
+            const name =
+                slide.querySelector(
+                    '.signature-slide-name'
+                );
+
+            const desc =
+                slide.querySelector(
+                    '.signature-slide-desc'
+                );
+
+            const priceLabel =
+                slide.querySelector(
+                    '.signature-slide-price-label'
+                );
+
+            const price =
+                slide.querySelector(
+                    '.signature-slide-price'
+                );
+
+            const discoverBtn =
+                slide.querySelector(
+                    '.btn-primary'
+                );
+
+
+            if (region) {
+                region.textContent =
+                    dishData.region;
+            }
+
+
+            if (name) {
+                name.textContent =
+                    dishData.name;
+            }
+
+
+            if (desc) {
+                desc.textContent =
+                    dishData.desc;
+            }
+
+
+            if (priceLabel) {
+                priceLabel.textContent =
+                    lang === 'id'
+                        ? 'Harga'
+                        : 'Price';
+            }
+
+
+            if (price) {
+                price.textContent =
+                    dishData.price;
+            }
+
+
+            if (
+                discoverBtn &&
+                translations[lang]
+                    .signature
+                    ?.btnDiscover
+            ) {
+
+                const svg =
+                    discoverBtn.querySelector(
+                        'svg'
+                    );
+
+                discoverBtn.textContent =
+                    translations[lang]
+                        .signature
+                        .btnDiscover + ' ';
+
+                if (svg) {
+                    discoverBtn.appendChild(svg);
+                }
+
+            }
+
+        }
+    );
+
+
+    // =========================================
+    // CULINARY JOURNEY
+    // =========================================
+
+    const culinaryEyebrow =
+        document.querySelector(
+            '.culinary-journey-header .journey-eyebrow'
+        );
+
+    const culinaryTitle =
+        document.querySelector(
+            '.culinary-journey-header .journey-title'
+        );
+
+    const culinaryIntro =
+        document.querySelector(
+            '.journey-intro'
+        );
+
+
+    if (
+        culinaryEyebrow &&
+        translations[lang].culinary?.eyebrow
+    ) {
+
+        culinaryEyebrow.textContent =
+            translations[lang]
+                .culinary
+                .eyebrow;
+
+    }
+
+
+    if (
+        culinaryTitle &&
+        translations[lang].culinary?.title
+    ) {
+
+        culinaryTitle.innerHTML =
+            translations[lang]
+                .culinary
+                .title;
+
+    }
+
+
+    if (
+        culinaryIntro &&
+        translations[lang].culinary?.intro
+    ) {
+
+        culinaryIntro.textContent =
+            translations[lang]
+                .culinary
+                .intro;
+
+    }
+
+
+    // =========================================
+    // JOURNEY STEPS
+    // =========================================
+
+    const journeySteps =
+        document.querySelectorAll(
+            '.journey-step'
+        );
+
+
+    const culinary =
+        translations[lang].culinary;
+
+
+    if (culinary) {
+
+        const steps = [
+
+            {
+                num: culinary.step1,
+                title: culinary.gather,
+                desc: culinary.gatherDesc
+            },
+
+            {
+                num: culinary.step2,
+                title: culinary.transform,
+                desc: culinary.transformDesc
+            },
+
+            {
+                num: culinary.step3,
+                title: culinary.share,
+                desc: culinary.shareDesc
+            }
+
+        ];
+
+
+        journeySteps.forEach(
+            (step, index) => {
+
+                if (!steps[index]) {
+                    return;
+                }
+
+
+                const numEl =
+                    step.querySelector(
+                        '.journey-content span'
+                    );
+
+                const titleEl =
+                    step.querySelector(
+                        '.journey-content h3'
+                    );
+
+                const descEl =
+                    step.querySelector(
+                        '.journey-content p'
+                    );
+
+
+                if (numEl) {
+                    numEl.textContent =
+                        steps[index].num;
+                }
+
+
+                if (titleEl) {
+                    titleEl.textContent =
+                        steps[index].title;
+                }
+
+
+                if (descEl) {
+                    descEl.textContent =
+                        steps[index].desc;
+                }
+
+            }
+        );
+
+    }
+
+
+    // =========================================
+    // COLLECTION
+    // =========================================
+
+    const collectionEyebrow =
+        document.querySelector(
+            '.collection-eyebrow'
+        );
+
+    const collectionTitle =
+        document.querySelector(
+            '.collection-title'
+        );
+
+    const filterButtons =
+        document.querySelectorAll(
+            '.filter-btn'
+        );
+
+    if (
+        collectionEyebrow &&
+        translations[lang].collection?.eyebrow
+    ) {
+        collectionEyebrow.textContent =
+            translations[lang].collection.eyebrow;
+    }
+
+    if (
+        collectionTitle &&
+        translations[lang].collection?.title
+    ) {
+        collectionTitle.innerHTML =
+            translations[lang].collection.title;
+    }
+
+    filterButtons.forEach((button) => {
+        const filterKey = button.dataset.filter;
+        const text = translations[lang].collection?.filters?.[filterKey];
+
+        if (text) {
+            button.textContent = text;
+        }
+    });
+
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach((card, index) => {
+        const item = translations[lang].collection?.items?.[index];
+
+        if (!item) return;
+
+        const region = card.querySelector('.product-region');
+        const desc = card.querySelector('.product-desc');
+        const order = card.querySelector('.product-order');
+
+        if (region) region.textContent = item.region;
+        if (desc) desc.textContent = item.desc;
+        if (order && translations[lang].collection?.order) {
+            order.textContent = translations[lang].collection.order;
+        }
+    });
+
+
+    // =========================================
+    // TESTIMONIALS
+    // =========================================
+
+    const testimonialsEyebrow =
+        document.querySelector(
+            '.testimonials-eyebrow'
+        );
+
+    const testimonialsTitle =
+        document.querySelector(
+            '.testimonials-title'
+        );
+
+    const testimonialCards =
+        document.querySelectorAll(
+            '.testimonial-card'
+        );
+
+    if (
+        testimonialsEyebrow &&
+        translations[lang].testimonials?.eyebrow
+    ) {
+        testimonialsEyebrow.textContent =
+            translations[lang].testimonials.eyebrow;
+    }
+
+    if (
+        testimonialsTitle &&
+        translations[lang].testimonials?.title
+    ) {
+        testimonialsTitle.innerHTML =
+            translations[lang].testimonials.title;
+    }
+
+    testimonialCards.forEach((card, index) => {
+        const item = translations[lang].testimonials?.cards?.[index];
+
+        if (!item) return;
+
+        const text = card.querySelector('.testimonial-text');
+        const name = card.querySelector('.testimonial-name');
+        const location = card.querySelector('.testimonial-location');
+
+        if (text) text.textContent = item.text;
+        if (name) name.textContent = item.name;
+        if (location) location.textContent = item.location;
+    });
+
+
+    // =========================================
+    // GALLERY
+    // =========================================
+
+    const galleryEyebrow =
+        document.querySelector(
+            '.gallery-eyebrow'
+        );
+
+    const galleryTitle =
+        document.querySelector(
+            '.gallery-title'
+        );
+
+    const galleryLabels =
+        document.querySelectorAll(
+            '.gallery-item-label'
+        );
+
+    if (
+        galleryEyebrow &&
+        translations[lang].gallery?.eyebrow
+    ) {
+        galleryEyebrow.textContent =
+            translations[lang].gallery.eyebrow;
+    }
+
+    if (
+        galleryTitle &&
+        translations[lang].gallery?.title
+    ) {
+        galleryTitle.innerHTML =
+            translations[lang].gallery.title;
+    }
+
+    galleryLabels.forEach((label, index) => {
+        const item = translations[lang].gallery?.labels?.[index];
+        if (item) label.textContent = item;
+    });
+
+
+    // =========================================
+    // FINAL CTA
+    // =========================================
+
+    const ctaEyebrow =
+        document.querySelector(
+            '.final-cta-eyebrow'
+        );
+
+    const ctaTitle =
+        document.querySelector(
+            '.final-cta-title'
+        );
+
+    const ctaSub =
+        document.querySelector(
+            '.final-cta-sub'
+        );
+
+    if (ctaEyebrow && translations[lang].cta?.eyebrow) {
+        ctaEyebrow.textContent = translations[lang].cta.eyebrow;
+    }
+
+    if (ctaTitle && translations[lang].cta?.title) {
+        ctaTitle.innerHTML = translations[lang].cta.title;
+    }
+
+    if (ctaSub && translations[lang].cta?.sub) {
+        ctaSub.textContent = translations[lang].cta.sub;
+    }
+
+    const ctaButtons = document.querySelectorAll('.final-cta-buttons a');
+    ctaButtons.forEach((button, index) => {
+        const key = index === 0 ? 'explore' : 'order';
+        const text = translations[lang].cta?.[key];
+
+        if (!text) return;
+
+        const svg = button.querySelector('svg');
+        button.textContent = text + (svg ? ' ' : '');
+
+        if (svg) {
+            button.appendChild(svg);
+        }
+    });
+
+
+    // =========================================
+    // FOOTER
+    // =========================================
+
+    const footerTitles = document.querySelectorAll('.footer-col-title');
+    const footerLinks = document.querySelectorAll('.footer-link');
+
+    if (footerTitles[0] && translations[lang].footer?.explore) {
+        footerTitles[0].textContent = translations[lang].footer.explore;
+    }
+
+    if (footerTitles[1] && translations[lang].footer?.regions) {
+        footerTitles[1].textContent = translations[lang].footer.regions;
+    }
+
+    if (footerTitles[2] && translations[lang].footer?.connect) {
+        footerTitles[2].textContent = translations[lang].footer.connect;
+    }
+
+    const footerMap = [
+        { href: '#story', text: 'ourStory' },
+        { href: '#journey', text: 'theJourney' },
+        { href: '#menu', text: 'menu' },
+        { href: '#gallery', text: 'gallery' },
+        { href: '#', text: 'sumatra' },
+        { href: '#', text: 'java' },
+        { href: '#', text: 'sulawesi' },
+        { href: '#', text: 'eastern' },
+        { href: 'https://wa.me/6281317100120', text: 'whatsapp' },
+        { href: '#', text: 'instagram' },
+        { href: '#', text: 'tiktok' },
+        { href: '#', text: 'email' }
+    ];
+
+    footerLinks.forEach((link, index) => {
+        const textKey = footerMap[index]?.text;
+        const value = textKey ? translations[lang].footer?.[textKey] : null;
+
+        if (value) {
+            link.textContent = value;
+        }
+    });
+
+    // Update region data with new language
+    if (typeof updateRegion === 'function') {
+        updateRegion(currentRegion);
+    }
+
+}
     // === NAVIGATION LOGIC ===
     const nav = document.getElementById('nav');
     const menuToggle = document.getElementById('menuToggle');
@@ -509,96 +1865,15 @@ document.addEventListener("DOMContentLoaded", () => {
             // INTERACTIVE MAP
             // =========================================
 
-            const regionData = {
-
-                sumatra: {
-                    region: 'West Sumatra',
-                    dish: 'Rendang',
-                    image: 'assets/rendang.jpeg',
-                    story: '"Slow-cooked, rich, and deeply rooted in Minangkabau culinary tradition."',
-                    flavors: [
-                        'Rich',
-                        'Spiced',
-                        'Savory'
-                    ]
-                },
-
-                java: {
-                    region: 'Yogyakarta, Java',
-                    dish: 'Gudeg',
-                    image: 'assets/gudeg.jpg',
-                    story: '"Sweet, savory jackfruit stewed for hours — a Javanese royal tradition."',
-                    flavors: [
-                        'Sweet',
-                        'Savory',
-                        'Tender'
-                    ]
-                },
-
-                kalimantan: {
-                    region: 'Pontianak, Kalimantan',
-                    dish: 'Bubur Pedas',
-                    image: 'assets/bubur.jpg',
-                    story: '"Aromatic spiced porridge reflecting the crossroads of Borneo\'s trading heritage."',
-                    flavors: [
-                        'Aromatic',
-                        'Spiced',
-                        'Hearty'
-                    ]
-                },
-
-                sulawesi: {
-                    region: 'South Sulawesi',
-                    dish: 'Coto Makassar',
-                    image: 'assets/coto.jpeg',
-                    story: '"Rich beef soup with ground peanuts and fragrant galangal from Bugis tradition."',
-                    flavors: [
-                        'Rich',
-                        'Nutty',
-                        'Aromatic'
-                    ]
-                },
-
-                bali: {
-                    region: 'Bali',
-                    dish: 'Babi Guling',
-                    image: 'assets/babi.jpg',
-                    story: '"Ceremonial spit-roast seasoned with turmeric, lemongrass, and Balinese spice paste."',
-                    flavors: [
-                        'Bold',
-                        'Herbal',
-                        'Smoky'
-                    ]
-                },
-
-                eastern: {
-                    region: 'Maluku, Eastern Indonesia',
-                    dish: 'Ikan Bumbu Bali',
-                    image: 'assets/ikan.jpg',
-                    story: '"The spice islands\' gift to the world — fish bathed in chili, tomato, and lime."',
-                    flavors: [
-                        'Spicy',
-                        'Tangy',
-                        'Fresh'
-                    ]
-                }
-
-            };
-
-
             function updateRegion(region) {
 
-                const data =
-                    regionData[region];
+                if (!translations[currentLanguage]?.regions?.[region]) {
+                    console.error(`Region data not found for ${region}`);
+                    return;
+                }
 
-                if (!data) return;
-
-
-                const info =
-                    document.getElementById(
-                        'journeyInfo'
-                    );
-
+                const data = translations[currentLanguage].regions[region];
+                const info = document.getElementById('journeyInfo');
 
                 if (typeof gsap !== 'undefined') {
 
@@ -610,10 +1885,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         onComplete: () => {
 
-                            updateMapInfo(
-                                data,
-                                region
-                            );
+                            updateMapInfo(data, region);
 
                             gsap.to(info, {
 
@@ -633,15 +1905,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     setTimeout(() => {
 
-                        updateMapInfo(
-                            data,
-                            region
-                        );
+                        updateMapInfo(data, region);
 
                         info.style.opacity = '1';
 
-                        info.style.transition =
-                            'opacity 0.5s';
+                        info.style.transition = 'opacity 0.5s';
 
                     }, 300);
 
@@ -704,6 +1972,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 region
             ) {
 
+                // Map region to image file
+                const imageMap = {
+                    sumatra: 'assets/rendang.jpeg',
+                    java: 'assets/gudeg.jpg',
+                    kalimantan: 'assets/bubur.jpg',
+                    sulawesi: 'assets/coto.jpeg',
+                    bali: 'assets/babi.jpg',
+                    eastern: 'assets/ikan.jpg'
+                };
+
                 document.getElementById(
                     'infoRegion'
                 ).textContent = data.region;
@@ -717,7 +1995,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById(
                     'infoImage'
                 ).style.backgroundImage =
-                    `url('${data.image}')`;
+                    `url('${imageMap[region]}')`;
 
 
                 document.getElementById(
@@ -795,10 +2073,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     el.addEventListener(
                         'click',
-                        () =>
+                        () => {
+                            currentRegion = el.dataset.region;
                             updateRegion(
                                 el.dataset.region
-                            )
+                            );
+                        }
                     )
 
                 );
@@ -810,10 +2090,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     btn.addEventListener(
                         'click',
-                        () =>
+                        () => {
+                            currentRegion = btn.dataset.region;
                             updateRegion(
                                 btn.dataset.region
-                            )
+                            );
+                        }
                     )
 
                 );
