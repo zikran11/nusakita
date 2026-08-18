@@ -2037,7 +2037,7 @@ body:has(.mobile-menu.open) .close-menu-btn {
         overflow-x: auto;
         overflow-y: hidden;
 
-        padding: 0.5rem 0 1rem;
+        padding: 0.5rem 1.25rem 1rem 0;
 
         /* MATIKAN ANIMASI DESKTOP */
         animation: none !important;
@@ -2056,10 +2056,10 @@ body:has(.mobile-menu.open) .close-menu-btn {
     }
 
     .testimonial-card {
-        flex: 0 0 calc(100vw - 2.5rem);
-        width: calc(100vw - 2.5rem);
+        flex: 0 0 calc(100vw - 2.5rem - 3rem);
+        width: calc(100vw - 2.5rem - 3rem);
 
-        max-width: calc(100vw - 2.5rem);
+        max-width: calc(100vw - 2.5rem - 3rem);
 
         box-sizing: border-box;
 
